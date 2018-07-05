@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rebuild": "docker-compose build && docker-compose up",
+    "start-dev" : "NODE_ENV=development && knex migrate:latest --env $NODE_ENV && knex seed:run && node dev-app.js"
   },
   "author": "",
   "license": "ISC",

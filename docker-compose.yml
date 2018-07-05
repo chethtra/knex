@@ -1,5 +1,13 @@
-version: '2'
+version: '3'
 services: 
+  web:
+      build: .
+      volumes:
+        - .:/usr/app/
+        - /usr/app/node_modules
+      command:  npm run start-dev
+      depends_on:
+        - postgres
   postgres: 
     image: postgres:9.6
     ports:
@@ -7,3 +15,4 @@ services:
     environment:
         POSTGRES_USER: user
         POSTGRES_DB: my_db
+    
